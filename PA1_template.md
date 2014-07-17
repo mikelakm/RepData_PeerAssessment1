@@ -6,7 +6,7 @@ The data used in this study were measured using a personal activity monitoring d
 
 ## Loading and preprocessing the data
 
-For the purposes of this project the data where manually downloaded from [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip) and unzipped to a comma-separated-value (csv) file in the working directory. The dataset was loaded into R in a data frame with the following variables:
+For the purposes of this project the data where downloaded from [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip) and unzipped to a comma-separated-value (csv) file in the working directory. The dataset was loaded into R in a data frame with the following variables:
 
 - steps: Number of steps taken in a 5-minute interval
 - date: The date on which the measurement was taken in YYYY-MM-DD format
@@ -17,7 +17,9 @@ Furthermore, date was converted into a date format, so that it could be easier u
 
 ```r
 setwd("C:/Personal/Classes/Coursera/Reproducible Research/Peer Assessments/Peer Assessment 1")
-activity <- read.csv("activity.csv", stringsAsFactors=FALSE)
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(fileUrl, destfile="activity.zip")
+activity <- read.csv(unzip("activity.zip"), stringsAsFactors=FALSE)
 activity$date <- as.Date(activity$date, format="%Y-%m-%d")
 ```
 
