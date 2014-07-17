@@ -16,9 +16,11 @@ Furthermore, date was converted into a date format, so that it could be easier u
 
 ```{r}
 setwd("C:/Personal/Classes/Coursera/Reproducible Research/Peer Assessments/Peer Assessment 1")
-fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
-download.file(fileUrl, destfile="activity.zip")
-activity <- read.csv(unzip("activity.zip"), stringsAsFactors=FALSE)
+activity <- read.csv("activity.csv", stringsAsFactors=FALSE)
+# The file could be automatically downloaded and read with the following commands
+# fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+# download.file(fileUrl, destfile="activity.zip")
+# activity <- read.csv(unzip("activity.zip"), stringsAsFactors=FALSE)
 activity$date <- as.Date(activity$date, format="%Y-%m-%d")
 ```
 
